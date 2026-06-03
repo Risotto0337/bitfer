@@ -1,0 +1,11 @@
+name: hello
+
+source:
+  url: https://ftp.gnu.org/gnu/hello/hello-2.12.tar.gz
+
+build:
+  steps:
+    - cd hello-2.12
+    - ./configure --prefix=/usr
+    - make -j$(nproc)
+    - make install DESTDIR=$DESTDIR
